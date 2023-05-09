@@ -5,7 +5,7 @@
 @section('content')
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid text-white">
-        <a class="navbar-brand" href="index">
+        <a class="navbar-brand" href="{{route('comics.index')}}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-arrow-left-short" viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
@@ -49,7 +49,8 @@
                 <div class="row row-cols-auto">
                     @foreach ($valores["imagenes"] as $key)
                     <div class="col">
-                        <img src=" {{$key . ".jpg"}}" class=" rounded-circle" alt="..." width="100" height="100">
+                        <img src=" {{$key . ".jpg"}}" class=" rounded-circle mb-4" alt="..." width="100" height="100">
+                        
                     </div>
                     @endforeach
                 </div>

@@ -7,7 +7,6 @@ use GuzzleHttp\Client;
 
 class CommicsController extends Controller
 {
-
     public function index()
     {
         $client = new Client();
