@@ -40,13 +40,45 @@ class CommicsController extends Controller
         $comic = json_decode($response->getBody()->getContents());
 
         $objeto = 0;
+        $objeto1 = [];
+        
+    $nombres = [];
+    $imagenes = [];
+  
 
         foreach ($comic->data->results as $item) {
             $objeto = $item;
         }
 
+        
+        foreach ($objeto->characters->items as $element) {
+            $endPoint = $element->resourceURI;
 
-        // dump($objeto->dates[0]->date);
-        return view('comics.show', compact('objeto'));
+            $response2 = $client->request('GET', $endPoint , [
+                'query' => [
+                    'apikey' => 'df3ff708b5b0e53e8b14c4ad502f83f9',
+                    'ts' => time(),
+                    'hash' => md5(time() . 'e8c4dbf2c24e46f03c088f0ffde82ae8068582cc' . 'df3ff708b5b0e53e8b14c4ad502f83f9'),
+                ]
+            ]);
+            array_push($objeto1, json_decode($response2->getBody()->getContents()));
+        }
+
+        foreach ($objeto1 as $item) {
+            foreach ($item->data->results as $key) {
+                //dump($key);
+                array_push($nombres, $key->name);
+                array_push($imagenes, $key->thumbnail->path);
+            }
+        }
+        $valores = [
+            "nombres" => $nombres,
+            "imagenes" => $imagenes,
+        ];
+
+        //dump($valores["imagenes"][0]);
+        
+
+        return view('comics.show', compact('objeto', 'valores'));
     }
 }

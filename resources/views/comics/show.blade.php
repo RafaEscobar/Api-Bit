@@ -23,7 +23,8 @@
                     {{$fecha = substr($objeto->dates[0]->date, 0, 10);}}
                 </p>
                 <div class="col col-lg-6" style="padding-left: 200px">
-                    <img src="https://picsum.photos/id/237/200/300" alt="....">
+                    <p hidden>{{$ruta=$objeto->thumbnail->path . '.jpg'}}</p>
+                    <img src=" {{$ruta}}" class="card-img-top" >
                 </div>
                 <div class="col col-lg-6">
                     <h1>{{$objeto->title}}</h1>
@@ -36,25 +37,22 @@
                 </div>
             </div>
             <br>
-            <div class="row" style="padding-left:190px">
+            <div class="row text" style="padding-left:190px">
                 <p>Sumary</p>
-                <p>bevuberbrvueirveuibvbeuvuie 1331</p>
+                <p>Collects: {{$objeto->stories->items[0] ->name}} </p>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum laboriosam distinctio sapiente, consequatur placeat quaerat natus velit quidem deleniti cumque unde consectetur perspiciatis labore aliquid excepturi voluptatem neque. Similique, amet.
+                    {{$objeto->description}}
                 </p>
             </div>
             <div class="d-fljustify-content-lg-end" style="padding-left:190px">
-                <p>Personajes</p>
+                <p class="fs-4">Personajes</p>
                 <div class="row row-cols-auto">
+                    @foreach ($valores["imagenes"] as $key)
                     <div class="col">
-                        <img src="https://picsum.photos/id/237/200/300" alt="...." class="rounded-circle" height="150" width="150">
-
+                        <img src=" {{$key . ".jpg"}}" class=" rounded-circle" alt="..." width="100" height="100">
                     </div>
-                    <div class="col">
-                        <img src="https://picsum.photos/id/237/200/300" alt="...." class="rounded-circle" height="150" width="150">
-
-                    </div>
-                  </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

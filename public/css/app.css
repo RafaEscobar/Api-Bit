@@ -11,3 +11,14 @@ body{
 .link{
     text-decoration: none;
 }
+
+.text{
+    font-size: 13;
+    font-weight: 600;
+}
+.text2{
+    font-size: 18;
+    font-weight: 600;
+}
+
+
