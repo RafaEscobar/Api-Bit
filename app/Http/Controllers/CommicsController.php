@@ -23,4 +23,8 @@ class CommicsController extends Controller
 
         return view('comics.index', compact('comics'));
     }
+
+    public function show(){
+        return view('comics.show');
+    }
 }
