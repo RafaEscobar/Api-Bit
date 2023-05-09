@@ -3,15 +3,23 @@
 
 @section('content')
 
-    <h1>Pagina principal de comics</h1>
-    @foreach ($comics->data->results as $comic)
-            <li>{{ $comic->title }}</li>
-    @endforeach
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
+        <div class="container text-center">
+            <div class="row">
+                @foreach ($comics->data->results as $comic)
+                <p hidden>{{$ruta=$comic->thumbnail->path . '.jpg'}}</p>
 
+                <div class="col-3  ">
+                    
+                    <a class="link" href="">
+                        <div class="card mt-3 mb-3 border border-0" >
+                            <img src=" {{$ruta}}" class="card-img-top" alt="..." height="400">
+                            <div class="card-body carta">
+                                <p class="card-text ">{{ $comic->title }}</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+        </div>
 @endsection

@@ -1,0 +1,13 @@
+body{
+    background-color: #322727;
+}
+
+.carta{
+    background-color: #322727; 
+    color: white;
+    font-weight: 600;
+    text-align: start;
+}
+.link{
+    text-decoration: none;
+}
