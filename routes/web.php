@@ -1,20 +1,21 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CommicsController;
+use Faker\Guesser\Name;
 
+Route::get('/', [AuthController::class, 'index'])->name('home');
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+Route::prefix('auth')->group(function(){
+    Route::get('login', [AuthController::class, 'login'])->name('login');
+    Route::post('loginVeri', [AuthController::class, 'loginVerify'])->name('login.verify');
+    Route::get('register', [AuthController::class, 'register'])->name('register');
+    Route::post('registerVeri', [AuthController::class, 'registerVerify'])->name('register.verify');
+    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+});
 
-
-Route::get('/', [CommicsController::class, 'index'])->name('comics.index');
-Route::get('/comics/{id}', [CommicsController::class, 'show'])->name('comics.show');
+Route::middleware('auth')->group(function () {
+    Route::get('/comics/', [CommicsController::class, 'index'])->name('comics.index');
+    Route::get('/comics/{id}', [CommicsController::class, 'show'])->name('comics.show');
+});
