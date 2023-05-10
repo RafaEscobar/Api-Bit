@@ -21,6 +21,7 @@
             <div class="row  ">
                 <p hidden>
                     {{$fecha = substr($objeto->dates[0]->date, 0, 10);}}
+                    {{ $tam = count($objeto1); }}
                 </p>
                 <div class="col col-lg-6" style="padding-left: 200px">
                     <p hidden>{{$ruta=$objeto->thumbnail->path . '.jpg'}}</p>
@@ -43,16 +44,19 @@
                 <p>
                     {{$objeto->description}}
                 </p>
-            </div>
+            </div>     
             <div class="d-fljustify-content-lg-end" style="padding-left:190px">
                 <p class="fs-4">Personajes</p>
-                <div class="row row-cols-auto">
-                    @foreach ($valores["imagenes"] as $key)
-                    <div class="col">
-                        <img src=" {{$key . ".jpg"}}" class=" rounded-circle mb-4" alt="..." width="100" height="100">
-                        
-                    </div>
-                    @endforeach
+                <div class="row">
+                    @for ($i = 0; $i < $tam; $i++)
+                        @foreach ($objeto1[$i]->data->results as $key)
+                        <p hidden>{{$per = $key->thumbnail->path . '.jpg'}}</p>    
+                        <div class="col-2">
+                            <img src="{{$per}}" class=" rounded-circle mb-4" alt="..." width="100" height="100">
+                            <p class="text-center">{{$key->name}}</p>
+                        </div>
+                        @endforeach
+                    @endfor
                 </div>
             </div>
         </div>
