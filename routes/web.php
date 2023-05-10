@@ -19,6 +19,7 @@ Route::prefix('auth')->group(function(){
 Route::middleware('auth')->group(function () {
     Route::get('/comics', [CommicsController::class, 'index'])->name('comics.index');
     Route::get('/comics/{id}', [CommicsController::class, 'show'])->name('comics.show');
+    Route::get('/profile/', [CommicsController::class, 'profile'])->name('profile');
 });
 
 // Route::get('/inicio', [UserController::class, 'inicio']);

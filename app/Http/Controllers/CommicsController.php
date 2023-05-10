@@ -75,4 +75,8 @@ class CommicsController extends Controller
 
         return view('comics.show', compact('objeto', 'objeto1'));
     }
+
+    public function profile(){
+        return view('users.profile');
+    }
 }

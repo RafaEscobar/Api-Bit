@@ -13,7 +13,7 @@
             <a class="nav-link text-white" href="{{route('home')}}">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="">Perfil</a>
+            <a class="nav-link text-white" href="{{route('profile')}}">Perfil</a>
           </li>
           <li class="nav-item">
             <form action="{{route('logout')}}" method="post">

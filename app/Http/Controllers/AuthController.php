@@ -19,14 +19,15 @@ class AuthController extends Controller
 
         $registro = new User();
 
-        // $rescate = $request->img->store('public/img');
+        
+        $path = $request->img->store('public/img');
 
         $registro->name = $request->name;
         $registro->apeA = $request->apeA;
         $registro->apeB = $request->apeB;
         $registro->email = $request->email;
         $registro->password = bcrypt($request->password);
-        // $registro->password = $rescate;
+        $registro->password = $path;
 
         $registro->save();
 

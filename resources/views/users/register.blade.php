@@ -13,7 +13,7 @@
             <input class="register bg-dark text-white" type="text" name="apeB"  placeholder="Ingresa apellido materno" >
             <input class="register bg-dark text-white" type="email" name="email"  placeholder="Ingresa email" >
             <input class="register bg-dark text-white"  type="password" name="password"  placeholder="Ingresa contraseña" >
-            {{-- <input class="file " type="file" name="img" />  --}}
+            <input class="file" type="file" name="img" /> 
             <button type="submit" class="btn btn-outline-light ">Registrar</button>
             <a href="{{route('login')}}" class="btn btn-dark">Iniciar sesion</a>
         </section>
