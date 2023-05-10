@@ -10,7 +10,7 @@
             <a class="nav-link active text-white" aria-current="page" href="#">X</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="{{route('home')}}">Inicio</a>
+            <a class="nav-link text-white" href="#">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="{{route('profile')}}">Perfil</a>

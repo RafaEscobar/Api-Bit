@@ -11,7 +11,7 @@
             <a class="nav-link active text-white" aria-current="page" href="#">X</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="{{route('home')}}">Inicio</a>
+            <a class="nav-link text-white" href="{{route('comics.index')}}">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white" href="{{route('profile')}}">Perfil</a>
@@ -33,7 +33,7 @@
             <br>
             <div class="row">
                 <div class="col-sm-3">
-                    <div class="card" style="width: 18rem; ">
+                    <div class="card bg-dark text-white" style="width: 18rem; ">
                         <p hidden>{{$cadena = str_replace('public/imagenes/', '', Auth::user()->img)}}</p> 
                         <img src="storage/imagenes/{{$cadena}}" class="card-img-top" alt="imagen de perfil">
                         <div class="card-body">
@@ -44,7 +44,7 @@
                 </div>
             <!-- targeta detalle -->
             <div class="col-sm-9">
-                <div class="card">
+                <div class="card bg-dark text-white">
                     <h5 class="card-header">Detalles</h5>
                     <div class="card-body">
                          <h5 class="card-title">Datos de la cuenta</h5>

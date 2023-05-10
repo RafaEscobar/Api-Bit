@@ -4,28 +4,28 @@
     
 @section('content')
 <nav class="navbar navbar-expand-lg bg-dark text-white">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active text-white" aria-current="page" href="#">X</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="{{route('home')}}">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="">Perfil</a>
-          </li>
-          <li class="nav-item">
-            <form action="{{route('logout')}}" method="post">
-                @csrf
-                <button type="submit" class="btn text-white">Cerrar sesión</button>
-            </form>
-          </li>
-        </ul>
-      </div>
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active text-white" aria-current="page" href="#">X</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{{route('comics.index')}}">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="{{route('profile')}}">Perfil</a>
+        </li>
+        <li class="nav-item">
+          <form action="{{route('logout')}}" method="post">
+              @csrf
+              <button type="submit" class="btn text-white">Cerrar sesión</button>
+          </form>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
     <div class="bg-white text-white">
         <div class="container bg-dark">
             <div class="row  ">
