@@ -4,7 +4,7 @@
     
 @section('content')
 <body>
-    <form action="{{route('register.verify')}}" method="POST">
+    <form action="{{route('register.verify')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <section class="form-register bg-dark">
             <h3>Registro</h3><br>

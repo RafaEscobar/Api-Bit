@@ -3,7 +3,29 @@
 @section('title', 'perfil')
     
 @section('content')
-    <body>
+<nav class="navbar navbar-expand-lg bg-dark text-white">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="#">X</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{{route('home')}}">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="{{route('profile')}}">Perfil</a>
+          </li>
+          <li class="nav-item">
+            <form action="{{route('logout')}}" method="post">
+                @csrf
+                <button type="submit" class="btn text-white">Cerrar sesión</button>
+            </form>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
     <div class="text-white" > 
         <div class="container bg-dark">
             <br>
@@ -12,7 +34,8 @@
             <div class="row">
                 <div class="col-sm-3">
                     <div class="card" style="width: 18rem; ">
-                        <img src="https://assetsio.reedpopcdn.com/NSwitchDS_KirbysDreamBuffet_1_4.png?width=1200&height=1200&fit=crop&quality=100&format=png&enable=upscale&auto=webp" class="card-img-top" alt="imagen de perfil">
+                        <p hidden>{{$cadena = str_replace('public/imagenes/', '', Auth::user()->img)}}</p> 
+                        <img src="storage/imagenes/{{$cadena}}" class="card-img-top" alt="imagen de perfil">
                         <div class="card-body">
                             <h5 class="card-text text-center" >{{ Auth::user()->name }}</h5>
                              <p class="card-text">Correo electrónico: {{ Auth::user()->email }}</p>
@@ -34,5 +57,4 @@
             </div>
         </div>
     </div>
-    </body>
 @endsection

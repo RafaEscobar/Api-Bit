@@ -24,7 +24,7 @@
         </ul>
       </div>
     </div>
-  </nav>
+</nav>
         <div class="container text-center bg-dark">
             <div class="row">
                 @foreach ($comics->data->results as $comic)
