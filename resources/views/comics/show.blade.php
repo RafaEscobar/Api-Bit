@@ -1,6 +1,6 @@
 @extends('layouts.plantilla')
 
-@section('title', '')
+@section('title', 'show')
     
 @section('content')
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

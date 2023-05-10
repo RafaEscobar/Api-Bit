@@ -2,7 +2,7 @@
 @section('title', 'index')
 
 @section('content')            
-        <div class="container text-center">
+        <div class="container text-center bg-dark">
             <div class="row">
                 @foreach ($comics->data->results as $comic)
                 <p hidden>{{$ruta=$comic->thumbnail->path . '.jpg'}}</p>
