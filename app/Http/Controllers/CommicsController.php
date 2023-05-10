@@ -41,8 +41,6 @@ class CommicsController extends Controller
         $objeto = 0;
         $objeto1 = [];
         
-    $nombres = [];
-    $imagenes = [];
   
 
         foreach ($comic->data->results as $item) {
@@ -63,21 +61,18 @@ class CommicsController extends Controller
             array_push($objeto1, json_decode($response2->getBody()->getContents()));
         }
 
-        foreach ($objeto1 as $item) {
-            foreach ($item->data->results as $key) {
-                //dump($key);
-                array_push($nombres, $key->name);
-                array_push($imagenes, $key->thumbnail->path);
-            }
-        }
-        $valores = [
-            "nombres" => $nombres,
-            "imagenes" => $imagenes,
-        ];
+    
+        // $tam = count($objeto1);
 
-        //dump($valores["imagenes"][0]);
-        
+        // for ($i=0; $i < $tam ; $i++) {             
+        //     foreach ($objeto1[$i]->data->results as $key) {
+        //         dump($key->name);
+        //         dump($key->thumbnail->path);
+        //     }
+        // }
 
-        return view('comics.show', compact('objeto', 'valores'));
+        // echo gettype($objeto1); 
+
+        return view('comics.show', compact('objeto', 'objeto1'));
     }
 }
