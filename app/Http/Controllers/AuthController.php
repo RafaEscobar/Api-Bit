@@ -15,18 +15,29 @@ class AuthController extends Controller
         return view('users.register');
     }
     public function registerVerify(Request $request){
-        request()->validate(User::$rules);
+        // request()->validate(User::$rules);
 
-        User::create($request->all());
+        $registro = new User();
 
-        return redirect()->route('comics.index');
+        // $rescate = $request->img->store('public/img');
+
+        $registro->name = $request->name;
+        $registro->apeA = $request->apeA;
+        $registro->apeB = $request->apeB;
+        $registro->email = $request->email;
+        $registro->password = bcrypt($request->password);
+        // $registro->password = $rescate;
+
+        $registro->save();
+
+        return redirect()->route('home');
     }
 
     public function login(){
         return redirect()->route('comics.index');
     }
     public function loginVerify(Request $request){
-        request()->validate(User::$rules);
+        // request()->validate(User::$rules);
 
         if(Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->route('comics.index');

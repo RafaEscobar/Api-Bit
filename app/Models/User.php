@@ -19,16 +19,19 @@ class User extends Authenticatable
      */
 
     static $rules = [
-        'nombre' => 'required',
+        'name' => 'required',
         'apeA' => 'required',
         'apeB' => 'required',
-        'img' => 'required',
+        'img' => 'required|mimes:jpeg,png,jpg,gif|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000',
         'password' => 'required',
-        'email' => 'required|mimes:jpeg,png,jpg,gif|dimensions:min_width=100,min_height=100,max_width=1000,max_height=1000'
+        'email' => 'required'
     ];
 
     protected $fillable = [
         'name',
+        'appA',
+        'appB',
+        'img',
         'email',
         'password',
     ];
